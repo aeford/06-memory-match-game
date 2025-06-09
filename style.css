@@ -1,0 +1,129 @@
+/* Use playful fonts */
+body {
+  font-family: 'Quicksand', Arial, sans-serif;
+  background: #f9f6ff;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Game Title */
+h1 {
+  font-family: 'Fredoka One', cursive;
+  color: #6c63ff;
+  margin-top: 24px;
+}
+
+/* Moves Counter */
+#moves-counter {
+  margin: 16px 0;
+  font-size: 1.2em;
+}
+
+/* Game Board Grid */
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 16px;
+  justify-content: center;
+  margin: 24px auto;
+  max-width: 350px;
+}
+
+/* Card Styles */
+.card {
+  width: 70px;
+  height: 90px;
+  perspective: 600px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Card Faces */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.card-front {
+  background: #fff;
+  border: 2px solid #6c63ff;
+  color: #6c63ff;
+}
+
+/* Make the back of the card plain white with border */
+.card-back {
+  background: #fff;
+  color: #fff; /* Hide any text */
+  border: 2px solid #6c63ff;
+  transform: rotateY(180deg);
+}
+
+/* Highlight matched cards in green */
+.card.matched .card-front {
+  background: #b6fcb6;
+  border-color: #34c759;
+  color: #34c759;
+}
+
+/* Win Message */
+#win-message {
+  font-size: 1.5em;
+  color: #ffb347;
+  margin: 20px 0;
+}
+
+/* Restart Button */
+#restart-btn {
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: background 0.2s;
+}
+
+#restart-btn:hover {
+  background: #574fd6;
+}
+
+/* Responsive Layout */
+@media (max-width: 500px) {
+  #game-board {
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(3, 65px);
+    gap: 10px;
+    max-width: 240px;
+  }
+  .card {
+    width: 50px;
+    height: 65px;
+  }
+  .card-front, .card-back {
+    font-size: 1.3em;
+  }
+}
